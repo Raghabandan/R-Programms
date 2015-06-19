@@ -1,0 +1,72 @@
+x<- read.table("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample.CSV", sep=",", header=T)
+
+top_10<- x[1:10, ]
+top_10<- lr_ds1[1:10, 1:4]
+
+top_10<- lr_ds1[1,1]
+top_10<- lr_ds1[1,1:2]
+
+top_10<- lr_ds1[nrow(lr_ds1), 1:4]
+top_10<- lr_ds1[1:nrow(lr_ds1), 1:4]						## Selecting top 10
+top_10
+
+
+y<- 0.10							## sample distribution
+ps<- nrow(x)
+ss<- as.integer(ps*y)
+sd<- x[sample(1:ps, ss, replace=F), ]
+nrow(sd)
+
+
+
+f<- x[which(x$Gender=="M"), ]					## Filtering			
+table(x$Gender)	
+nrow(f)
+
+
+sbd<- subset(x, Gender=="M", select = c(Cust_ID, Gender, Target))
+nrow(sbd)							## Subsetting and selecting required columns
+head(sbd)	
+
+xk<- x[c("Cust_ID", "Target", "Age")]
+head(xk)
+
+xk2<- x[c(1:3, 5)]
+head(xk2)
+
+
+var<- "Cust_ID"
+xk3<- x[colnames(x)==var]
+head(xk3)
+
+var2<- c("Cust_ID", "AGE_BKT")
+xk4<- x[colnames(x) %in% var2]
+head(xk4)
+---------------------------------------------------------
+
+Drop 
+
+
+
+xd<-x[ , !names(x) %in% c("Cust_ID", "Target", "Age")]
+head(xd)
+    
+
+xd$AGE_BKT<- NULL
+xd2<- xd
+head(xd2)
+
+
+xdf<- names(xd2) %in% c("Gender", "Balance")
+!xdf
+xd3<- xd2[!xdf]
+head(xd3)      
+      
+===================================================================================================================
+
+
+sample()
+which()
+subset()
+
+head()
