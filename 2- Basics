@@ -1,0 +1,59 @@
+Partial Matching
+
+x <- list(Apple= 1:5)
+x$a					## looks for name which matches a
+x$A					## looks for name which matches A
+x[["App"]]
+x[["App", exact= "FALSE"]]		## looks for closest match	
+
+===========================================================================================
+
+Removing missing/NA values
+
+x<- c(1, 2, NA, 4, NA, 5)
+bad<- is.na(x)				## NA elements into bad (logical vector)
+bad
+x[bad]
+x[!bad]					## opposite of bad
+
+---------------------------------------
+
+x<- c(1, 2, NA, 4, NA, 5)
+y<- c("a", "b", NA, "d", NA, "e")
+
+good<- complete.cases(x)		## checks which has good i.2 non-NA elements as logical vector	
+good
+good<- complete.cases(x, y)		## checks both
+good
+
+x[good]
+y[good]
+
+
+x<- c(1, 2, NA, 4, NA, 5)
+y<- c(NA, "b", "c", "d", NA, "e")
+z<- c(1, NA)
+
+good<- complete.cases(x, y)		## checks both, but only True only if both are true or else false
+good
+good<- complete.cases(x, z)		## Error: Not all arguments have the same length
+good 
+
+x[good]					## Does not shows 1
+y[good]					## Does not shows "c"
+
+---------------------------------------
+
+airquality[1:6, ]			## from dataframes
+
+good<- complete.cases(airquality)		
+airquality[good, ][1:6, ]		## Removes which has NA and add fill with two more good ones
+
+===========================================================================================
+
+
+
+is.na()
+is.NaN()
+complete.cases()
+
