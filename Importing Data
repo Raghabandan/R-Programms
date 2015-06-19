@@ -1,0 +1,140 @@
+read.table  				##data from txt / csv file and returns a DataFrame
+
+
+x<- read.table("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample.CSV")			## use / not \ 
+
+## Throws Error
+
+
+x<- read.table("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample.CSV", sep=",")		## seperater 
+
+added ## if printed shows all just clumsy
+
+head(x)												## shows as 
+
+dataframe
+
+
+x<- read.table("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample.CSV", sep=",", header=T)	## T=> first row 
+
+has col names so ignores
+head(x)
+
+x<- read.table("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample.CSV", sep="\t", header=T)	## In case the 
+
+file is tab delimited 
+head(x)
+
+================================================================================================================
+
+=========================================================================
+
+read.fwf				## read Fixed Width Format file
+
+
+y<- read.fwf("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample_FWF.txt", width= c(6,3), sep= "|", header= T)
+
+head(y)												## Default 
+
+seperator is tab \t						
+	
+
+y<- read.fwf("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample_FWF.txt", width= c(6,3), sep= "|", header= T, 
+
+skip=1, col.names= c("Cust_ID", "SCR"))
+head(y)
+
+class(y$SCR)
+class(y$Cust_ID)
+
+================================================================================================================
+
+=========================================================================
+
+Importing data from MS Excel
+
+1) Importing using RODBC Library
+
+library(RODBC)
+
+z<- odbcConnectExcel2007("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample_Xls.xlsx")
+
+myExcelData<- sqlFetch(z, "HoldingPeriod")
+
+close(z)
+
+-----------------------------------------------
+2) Importing using XLConnect Library
+
+
+
+
+
+
+Importing data from SAS dataset
+
+Reading data from 
+
+Database========================================================================================================
+
+=================================================================================
+Saving Objects
+ls()
+
+x<- read.table("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample.CSV", sep=",")
+class(x)
+y<- read.fwf("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample_FWF.txt", width= c(6,3), sep= "|", header= T)
+class(y)
+
+save.image("E:/shyam/First_Image.RData")				##.RDate and /
+save(x, file="E:/shyam/First_Image.RData")
+ls()
+
+-----------------------------------------------
+Loading Saved Objects
+ls()
+
+load(file="E:/shyam/First_Image.RData")
+ls()
+
+================================================================================================================
+
+=========================================================================
+
+Writing / Exporting data to a file
+
+
+
+x<- read.table("E:/shyam/Loan_Cross_Sell_Logistic_Regression_Sample.CSV", sep=",")  	
+
+write.table(x, file="E:/shyam/First_Export.CSV", sep= ",", quote=T, append=F, na="NA")
+
+write.table(x, file="E:/shyam/Second_Export.CSV", sep= ",", quote=T, append=F, na="NA", row.names=F)
+
+
+y<- summary(x)
+write(y, file="E:/shyam/First_Summary.CSV", sep= ",", append=F)
+
+write("-----------------------------------------------", file="E:/shyam/First_Summary.CSV", sep= ",", append=T)
+
+write(capture.output(y),file="E:/shyam/First_Summary.CSV", sep= ",", append=T)
+
+
+================================================================================================================
+
+=========================================================================
+
+
+read.table()	
+read.fwf()
+
+odbcConnectExcel2007()
+sqlFetch()
+close()
+
+save.image()
+save()
+
+load()
+
+write()
