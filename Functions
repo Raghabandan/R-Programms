@@ -1,0 +1,147 @@
+Sample functions
+
+
+
+add2<- function(x,y){
+  x+y
+}
+
+add2(33,55)
+--------------------------
+
+above10<- function(x){
+  use<- x>10
+  x[use]
+}
+above10(4)
+above10(44)
+--------------------------
+
+above<- function(x){		
+  use<- x<n			## Error bcoz no default value
+  x[use]
+}
+
+above(3)				
+--------------------------
+
+above<- function(x, n=10){	## defaullt value assigned
+  use<- x<n
+  x[use]
+}
+
+above(3)
+
+above<- function(x, n=5){	## defaullt value assigned
+  use<- x<50
+  x[use]
+}
+
+above(5)
+above(55)
+
+above<- function(x, n=5){ 	 
+  use<- x<50			## checks for 50 if not default value
+  x[use]
+}
+above(7)
+above(77)
+--------------------------
+
+
+Skipped coloumnmean function
+
+==========================================================================================
+
+## Jakhotia
+
+## Commonly used summary functions
+
+summary(lr_df)
+
+summary(lr_df$Balance)
+
+table(lr_df$AGE_BKT)		## Frquency
+
+quantile(lr_df$Age, c(0,1,5,10,25,50,75,90,95,99,100)/100)	##Percentile distribution
+========================================================================================
+
+## Commonly used mathematical functions
+
+ceiling(2.4)
+floor(2.4)
+trunc(2.4)
+round(2.4, 0)
+round(2.6, 0)
+-------------------------------------------------------
+
+abs(-25)
+sqrt(25)
+exp(25)
+log(25)
+-------------------------------------------------------
+
+x<- c(1,2,3,7,5,4,4,6)
+min(x)
+max(x)
+mean(x)
+median(x)
+
+mode(x)     					## No inbuilt function 
+
+temp<- table(x)					## code for mode
+names(temp)[temp==max(table(x))] 		## for mode
+names(temp)[max(table(x))] 			## Wrong 
+========================================================================================
+
+## Commonly used String function
+## Creating User Defined Functions
+
+I skipped but imprtant 
+========================================================================================
+
+## Local and Global variables
+
+a<- 10
+b<- 20
+
+local<- function() {
+	
+	print(a)		## a called inside a function
+	print(b)
+	a<- a+10		## a becomes a local variable
+	b<<- b+10		## symbols chage it as global
+	print(a)
+	print(b)
+}
+local()
+
+print(a)
+print(b)			## changes since its global now			
+========================================================================================
+
+
+summary()
+table()
+quantile()
+
+
+ceiling()
+floor()
+trunc()
+round()
+round()
+
+abs()
+sqrt()
+exp()
+log()
+
+
+min()
+max()
+mean()
+median()
+
+<<- global assignment
+
