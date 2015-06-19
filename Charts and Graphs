@@ -1,0 +1,159 @@
+## Bar Chart
+
+x<- c(4)
+barplot(x)
+
+x<- c(4, 10)
+barplot(x)
+
+x<- c(4:10)
+barplot(x)
+---------------------------------
+
+x<- c(5, 10, 5)
+barplot(x)
+
+x<- c(CSK= 5, MI=10, RR= 5)
+barplot(x)
+
+names(x)<- c("Ind", "Aus", "Pak")
+barplot(x)
+----------------------------------
+
+barplot(sin(x))
+barplot(log(x))
+========================================================================
+
+## Histogram
+
+hist(lr_df$Age, main= "Age Distribution", xlab= "Age", ylab=" Frequency", col= "orange")
+
+	
+## Pareto Chart
+
+library(qcc)
+
+freq_distribution<- table(lr_df$AGE_BKT)
+freq_distribution
+cnt_distinct<- length(freq_distribution)
+cnt_distinct
+
+pareto.chart(freq_distribution, main= "Age Pareto Chart", xlab="Age Buckets", ylab="Frequency", col="orange" )
+pareto.chart(freq_distribution, main= "Age Pareto Chart", xlab="Age Buckets", ylab="Frequency", col=topo.colors(cnt_distinct) )
+
+abline(h= sum(freq_distribution) *0.8, col="Red", lwd=2)
+
+
+## BOx Plot
+
+boxplot(lr_df$Age, main="Age Box Plot", ylab="Age in Yrs")
+
+boxplot(Age~Gender, data= lr_df,  main="Age Box Plot", ylab="Age in Yrs")
+
+boxplot(Age~Gender, data= lr_df,  main="Age Box Plot", xlab= "Gender", ylab="Age in Yrs", col=c(1:length(levels(lr_df$Gender))+1))
+
+
+## Piechart
+
+pie_cnt<- table(lr_df$AGE_BKT)
+pie_pct<- pie_cnt*100/sum(pie_cnt)
+
+pie_lbl<- paste( pie_pct, "%", sep="")
+pie_lbl<- paste( pie_pct, "%", sep=";")
+
+pie_lbl<- paste( row.names(pie_pct), pie_lbl, sep="\n")
+
+pie(pie_cnt, main="Age Pie Distribution", labels=pie_lbl)
+box()
+
+
+
+========================================================================
+
+## Scatter Plot
+
+x<- c(1, 2, 3)
+y<- c(1, 2, 3)
+plot(x,y)			## first x axis then y axis
+
+x<- c(1:50)
+y<- c(1:50)
+plot(x,y)
+
+x<- -10:10
+y<- abs(x)
+plot(x,y)
+
+========================================================================
+
+## Matrix Visualisation
+
+elevation<- matrix(1, 10, 10)		## elevatiion of beach shore 		
+elevation
+elevation[4, 6]<- 0                 	## Use 0 rather than NULL
+
+contour(elevation)
+persp(elevation)			## 3D perspective plot
+persp(elevation, expand=0.2)
+image(elevation)			## Heat map
+
+========================================================================
+
+## Plots with factors
+
+a <- c('gold', 'silver', 'gems', 'gold', 'gems')
+f1 <- factor(a)
+a
+f1                                  ## Always in ascending order
+
+as.integer(f1)
+levels(f1)
+
+
+x <- c(300, 200, 100, 250, 150)
+y <- c(9000, 5000, 12000, 7500, 18000)
+plot(x,y)
+f2<- factor(x)
+f3<- factor(y)
+plot(x,y, pch=as.integer(f1))      ## pch mandatory
+plot(x,y, pch=as.integer(f2))  
+plot(x,y, pch=as.integer(f3))) 
+
+
+
+legend("topright", c("gems", "gold", "silver"), pch=1:3)	## Adding legends 
+legend("topleft", c("gems", "gold", "silver"), pch=1:3)
+legend("top", c("gems", "gold", "silver"), pch=1:3)
+legend("bottomleft", c("gems", "gold", "silver"), pch=1:3)
+legend("bottomright", c("gems", "gold", "silver"), pch=1:3)
+legend("bottom", c("gems", "gold", "silver"), pch=1:3)
+legend("center", c("gems", "gold", "silver"), pch=1:3)
+
+
+legend("topright", levels(f1), pch=1:length(levels(f1)))
+
+========================================================================
+
+
+boxplot()
+plot()
+
+contour()
+persp()
+image()
+
+legend()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
