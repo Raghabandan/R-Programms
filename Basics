@@ -1,0 +1,635 @@
+BASICS
+
+help()
+?
+example()
+
+Case SENSITIVE
+=======================================================================
+
+23					## prints any value	
+55.523333	
+
+1:5
+5:1
+9+0i:9+10i
+
+23L					## Explicitely prints an integer	
+
+1/0					## Inf a non-zero number divided by zero creates infinity
+0/0					## NaN (Not a Number)
+
+
+sqrt(256)
+sin(1233)
+vector()				## Null vector created
+=======================================================================
+
+x<- -1 					## Expression object operator ## x is a vector and [1] => -1 is first element
+x
+x+8					## Any Operation + Print
+
+print(x)				## Explicit Printing	
+print(x+33)
+
+sin(x)
+
+msg<- "hello"				## Character data
+msg
+
+x<- 1:5					## : for integer seguence
+x
+
+print(x)
+print(x+12)
+print(x+0i)				## Vector Variable	
+
+
+class(x)				## shows the class
+
+
+=======================================================================
+
+
+x<- 1:4
+y<- 6:9
+
+
+x+y
+
+x>= y
+x==y
+
+y==8
+y>=7
+
+x*y
+
+x/y
+--------------------------
+sum(3, 4)
+sum(3, TRUE)
+sum(3, FALSE)
+sum(3, "TRUE")
+
+sum(rep(3, 7))
+sum(rep(3, 7), 5, 7 , 8)
+--------------------------
+
+seq(5, 9)
+seq(5, 9, 0.5)
+--------------------------
+
+abs(-5:5)
+--------------------------
+
+mean 
+=======================================================================
+
+x<- 0:6
+class(x)
+as.numeric(x)			## Explicit coersion ## Represents/Returns as a numeric
+class(x)				## Class will not change
+x
+
+x<- as.numeric(x)			## Assigned to same which changes the datatype
+class(x)
+x
+
+
+as.character(x)
+class(x)
+x
+
+x<- as.logical(x)
+class(x)
+x
+
+as.complex(x)
+class(x)
+x
+=======================================================================
+
+c()				## Concatenate fn-Combine Values into a Vector or List
+
+x<- c (0.5,0.6)			## vector created and 1st element is 0.5
+x
+
+x<- c (TRUE,FALSE)		## Logical
+x
+x<- c (T,F)			## Logical
+x
+x<- c ("Ram","Krish")		## Character
+x
+x<- c (9:6)			## Integer
+x
+x<- c (9+0i,6+10i)		## complex
+x
+
+
+x[1]
+
+
+x<- c(1,2,3)
+y<- c(11,1,6)
+x+y
+
+
+x<- 1:6
+y<- 11:16
+x+y
+
+
+x<- c(1:6)
+y<- c(11:16)
+x+y
+
+=======================================================================
+
+## Mixing objects results in coersion so that vector has similar elements
+
+y<- c (0.5,"a")			## Takes least data type class
+class(y)
+y
+
+y<- c (TRUE,2)
+class(y)
+y
+
+y<- c (TRUE,"a")
+class(y)
+y
+----------------------
+
+x<- c("a","b","c")
+as.integer(x)			## NA	and throws a warning
+class(x)
+as.complex(x)			
+class(x)
+
+=======================================================================
+
+Missing Values
+
+x<- c(1,2,NA,10,30)
+is.na (x)
+is.nan (x)
+
+x<- c(1,2,NA,NaN,10,30)		##NaN is a subset of NA
+is.na (x)
+is.nan (x)
+=======================================================================
+
+
+LISTS- Special type of vector with diff classes 
+
+x<-  list(0.5,"a",TRUE,3+9i)				## diff from c() as they collectively hold only one datatype
+x						## [[ implies list element 1 2 3 ....
+					
+length(x)
+
+x<- list()						## Null list
+x
+
+x<- list(Apple= 14, orange= 20, Type= "ooty")
+x
+
+x<- list(14, 20, "ooty")
+x
+
+x[1]							## getting element of a list
+x[3]
+
+x[3]<- NULL						## Removing element from list
+x
+
+x[3:5]<- "addone"
+x
+
+x<- list( c(3,5), 20)					## Adding vector to list		
+x
+
+x<- list(14:17, 20)					
+x
+
+a<- c(1,5)
+a
+
+x<- list(y, 20)
+x
+--------------------------------------------
+
+x<- list(Apple= 14, orange= 20, Type= "ooty")
+
+p<- x[1]
+p
+class(p)					    	## [] returns sublist	
+
+p<- x[[1]]
+p
+class(q)						## [[ ]] returns value		
+
+
+q<- x[3]
+q
+class(q)
+
+
+q<- x[[3]]
+q
+class(q)
+
+
+r<- x$Apple						## element called using name tag/label		
+r								
+class(r)							## class changes if called by name 
+
+--------------------------------------------
+
+x<- list(Apple= 14, orange= 20, Type= "ooty")
+x
+
+y<- unlist(x)						## Returns as vector										
+y
+class(y)						## Class type changes (taking least)
+
+=======================================================================
+Matrices-Vectors with dimension attribute
+
+m<- matrix (nrow=3,ncol=2)   	## empty matrix with matrix function
+m				## by default takes first num row nd second col no need for nrow, its a label
+
+dim(m)		 		## matrix dimentions
+attributes(m)			## matrix attributes
+
+
+m<- matrix(3)
+m
+
+m<- matrix(3,6)
+m
+
+m<- matrix(3,6,6)
+m
+
+m<- matrix("APPLE",6,6)
+m
+
+
+m<- matrix (nrow=4,ncol=2) 
+m
+
+m<- matrix(1:6,nrow=3,ncol=2)  ## elements arranged coloumnwise by default
+m
+
+
+m<- matrix( c (1,2,3,4,5,6),nrow=3,ncol=2)
+m
+
+
+m<- matrix(1:6,nrow=3,ncol=2,byrow="TRUE")  ## Talks abt the arrangement of element
+m
+
+m<- matrix(1:6,nrow=3,ncol=2,byrow="FALSE") ## elements arranged coloumnwise by default like rain drops
+m
+
+m<- matrix(1:6,nrow=3,ncol=2, T)
+m
+
+m<- matrix(1:6,nrow=3,ncol=2, F)  
+m
+
+m<- matrix(1:2,nrow=8,ncol=8) 
+m
+
+m<- matrix(1:2,nrow=8,ncol=8,T) 
+m
+
+
+m<- 1:6
+m
+dim(m)<- c(3,2)			## length shd match, Creating without matrix function
+m
+
+
+m<- matrix( c (1,2,3,4,5,6),nrow=3,ncol=2)
+m
+m[1, 3]
+m[1, ]
+m[ , 2]
+m[1:3, ]
+
+---------------------
+
+a<- 1:3
+b<- 4:6
+cbind(a,b)				## Bind coloumnwise
+rbind(a,b)				## Bind rownwise
+---------------------
+
+x<- matrix(1:4, 2, 2)
+y<- matrix(1:4, 2, 2)
+x
+y
+x*y
+
+x%*%y				## True matrix multiplication
+
+y<- matrix(rep(10), 2, 2)	## rep function to repeat 10 4 times
+y
+x
+y
+x*y
+x/y
+
+x%*%y
+
+=======================================================================
+
+Factor-special type of vector to represent categorical data
+
+
+
+x<- c("a", "b", "c", "d","a", "b", "f", "g", "h", "h", "h", "k")	
+x
+class(x)							## character
+
+y<- factor(x)
+y
+class(y)							## character to a data ## efficient storage
+
+levels(y)
+levels(y[1])
+levels(y)[2]						## calling specific level and refered outside
+levels(y)[c(2, 6, 7)]
+-------------------------------------
+
+
+x<- c(1,2,2,3)
+x
+y<- factor(x)
+y
+
+levels(y)							## levels in ascending order always
+levels(y)[3]						
+
+
+levels(y)<- c('A', 'B', 'C')					## Adding labels to levels
+levels(y)
+y								## which inturn changes y 
+
+z<- factor(x, labels= c('I', 'II', 'III'))			## Another way
+levels(z)
+z
+-------------------------------------
+
+x<-factor( c ("Yes","Yes","No","Yes") ) 			##factor use c() 
+x
+
+table(x)							## Frequency 
+unclass(x)							## Strips as integer vector
+	
+								## Altering the levels
+x<-factor( c ("Yes","Yes","No","Yes"), levels= c("Yes","No") )
+x
+
+x<-factor( c ("Yes","Yes","No","Yes"), levels= c("TOM","No") )
+x
+
+
+levels(x[1])							
+levels(x[1])[1]
+levels(x[1])[c(1,3)]
+
+
+
+y<- c(3,5,9,1,7,6,1)
+z<- factor(y)
+z								## Arrange in ascending order
+
+levels(z)							## Will not pick 1st                                                                    element			
+levels(z[1])
+
+levels(z)[1]
+levels(z[1])[6]
+
+-------------------------
+
+y<- c(3,5,9,1,7,6,1)
+z<- factor(y)
+z
+
+a<- factor(y, labels=c('I', 'II', 'III', 'IV', 'v', 'vI'))	## Assigning levels in Factor level	
+levels(z)<- c('A', 'B', 'C', 'D', 'E','F')
+levels(a)
+levels(z)
+a
+z
+--------------------------
+
+a <- c('gold', 'silver', 'gems', 'gold', 'gems')
+f1 <- factor(a)
+a
+f1                                  ## Always in ascending order
+
+as.integer(f1)
+levels(f1)
+
+
+x <- c(300, 200, 100, 250, 150)
+y <- c(9000, 5000, 12000, 7500, 18000)
+plot(x,y)
+f2<- factor(x)
+f3<- factor(y)
+plot(x,y, pch=as.integer(f1))      ## pch mandatory
+plot(x,y, pch=as.integer(f2))  
+plot(x,y, pch=as.integer(f3)) 
+=======================================================================
+
+Datafames- special type of list used to store tabular data
+## each element has same length
+## elements can have diff class
+
+x<- data.frame (Time=1:4, Ring= c (T,T,F,F) )		## Should have equal length
+x
+
+nrow(x)
+ncol(x)
+
+class(x)		
+	
+-----------------------------------------------------------
+sr_no<- c(1,2,3)
+Name<- c("NM", "AK", "RG")
+Age<- c(63, 45 ,43)
+
+pm<- data.frame(sr_no, Name, Age)
+pm
+
+class(pm)
+
+pm[1]							## prints 1st coloumn
+pm[1,3]							## Takes Row followed by col 
+
+rm(sr_no)						## Remove element
+sr_no
+pm
+
+pm$s							## looks for the closest match
+pm$sr_no<- NULL
+pm
+
+
+sr_no<- c(1,2,3)
+pm<- cbind(pm, sr_no)					## Add a coloumn using cbind function
+pm
+
+
+pm<- pm[c(3,1,2)]					## Reordering a coloumn, Now sno becomes 1 and so on 
+pm
+
+
+pm$f_initials<- substring(pm$Name, 1,1)			## Creating new variables from existing field
+							## Removes 1,1 => starting from 1st take 1
+pm$l_initials<- substring(pm$Name, 2,2)			## Removes 2,2 => starting from 2nd take 2
+pm
+
+pm$f_initials<- substring(pm$Age, 1,2)			## Removes 1,2 => starting from 1st take 2
+pm$l_initials<- substring(pm$Age, 2,3)
+pm
+
+----------------------------------------------
+							## created a row as a list
+
+nr<- list(sr_no= 4, Name="MB", Age="55", f_initials="M", l_initials="B") 
+								
+pm<- rbind(pm, data.frame(nr))				## bind as a dataframe
+pm
+	
+
+=======================================================================
+Attach & Detach
+
+attach(pm)						##Pm objects are masked by global envi 
+pm
+
+sr_no<- sr_no+1						## changes reflect only in real sr_no
+sr_no	
+pm$sr_no						## remains unaltered
+pm
+
+rm(sr_no)						## removed
+sr_no							## object in global envi alone remains	
+
+detach(pm)						## detached 
+attach(pm)						## once attached shows one oneless object
+
+
+	
+sr_no<- sr_no+1						## changed made			
+
+pm							## remains unaltered	
+sr_no							## chages, bcos a copy from pm is used for operation 
+
+pm$sr_no<- sr_no					## to change in pm use $
+pm
+
+=======================================================================
+
+Name Attribute
+
+x<- 1:3 
+names(x)							## Returns NULL
+
+names(x)<- c ("Jill", "Jung", "Jak")		## Add names 
+x
+names(x)
+---------------------
+
+x<- list(a=1, b=2, c=3)					## Add names to a LIST
+x
+---------------------
+
+m<- matrix (1:4, nrow=2, ncol=2)
+dimnames(m)							## Returns NULL	
+dimnames(m)<- list (c ("a", "b"), c("c", "d") )	## Add dimenstion names in MATRIX
+m								## first row then col like raindrops
+=======================================================================
+=======================================================================
+
+Subsetting
+
+Basics
+
+x<- c("a", "b", "c", "c", "d", "a")
+x
+x[1] 								## Extracting 1st element
+x[1:3]								## Extracting more elements
+
+x[x>"a"]							## Extracting using > operator
+x[x<"a"]							## no value
+
+u<- x>"a"							## using another vector
+u
+x[u]
+
+x<- c(1,2,3,4,4,1)
+
+
+a<- c(3, 4, 5)
+names(a)<- c("WED", "Red", "Ted")
+a
+
+a[1]						## error						
+a[Ted]						## Looks for Exact
+a["Ted"]					## Tries to match
+
+---------------------
+Lists
+
+x<- list (foo= 1:6, bar=0.6, bak=0.6, bad=0.6)
+x[1]						## Extracts 1st element
+x[2]						## Returns element as same class. Here return as list
+x[1:3]
+x[c(1,3)]					## cannot use [[ and $ for multiple elements
+
+**************
+x[[1]] 					## [[ we get sequence not like list in previous case
+
+x$bar						## element with name bar
+x[["bar"]]
+
+x["bar"]					## Returns a list with element bar in it 
+**************
+
+x<- list (foo= 1:6, bar=0.6, baz="Hello")
+name<- "foo"
+x[[name]]				## [[ used to compute index for foo
+
+x$ name				## element name does not exist bcoz literally looks for name
+x$ foo
+**************
+
+					## Subsetting nested elements in list
+x<- list (a= list (1,2,3), b= list ("a","b","c"))
+x[[c(1,3)]]				## [[ takes integer sequence. first element num and its subelements no
+x[[1]][[3]]				## pass vector  with 1,3
+
+x[[c(2,1)]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
