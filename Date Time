@@ -1,0 +1,38 @@
+Date
+
+x<- as.Date("1970-01-01")		## Default date 1970-01-01
+x
+
+class(x)
+unclass(x)				## Returns the num of days from 1970-01-01 to spectified value
+unclass(as.Date("1970-01-02"))
+unclass(as.Date("1970-01-15"))
+unclass(as.Date("1969-01-02"))		## Negative value 
+----------------------------------
+
+x<- Sys.time()
+x
+unclass(x)
+
+----------------------------------
+
+p<- as.POSIXlt(x)
+p
+unclass(p)
+p$sec
+
+----------------------------------
+
+unclass(x)
+x$sec					## error since x is still in sys.time format
+
+p<- as.POSIXlt(x)
+p$sec
+----------------------------------
+
+
+as.Date()
+as.POSIXlt()
+
+Sys.time()
+proc.time()
