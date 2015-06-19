@@ -1,0 +1,32 @@
+
+##Basic Statistics
+
+
+x<- 1:9
+
+mean(x)	
+median(x)
+sd(x)
+
+barplot(x)
+
+abline(h=mean(x))			## plotting line, h= horizontal, v= vertical
+abline(v=mean(x))
+
+abline(h=mean(x)+1)
+
+median(x)
+abline(h=median(x))
+
+abline(h= mean(x)+ sd(x))
+abline(h= mean(x)- sd(x))
+
+==============================================================================================
+
+
+mean()	
+median()
+sd()
+
+barplot()
+abline()
